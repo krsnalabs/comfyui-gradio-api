@@ -1,98 +1,178 @@
 {
-  "3": {
-    "inputs": {
-      "seed": 156680208700286,
-      "steps": 8,
-      "cfg": 6.5,
-      "sampler_name": "euler_ancestral",
-      "scheduler": "normal",
-      "denoise": 0.5,
-      "model": [
-        "4",
-        0
-      ],
-      "positive": [
-        "6",
-        0
-      ],
-      "negative": [
-        "7",
-        0
-      ],
-      "latent_image": [
-        "10",
-        0
-      ]
-    },
-    "class_type": "KSampler"
-  },
-  "4": {
-    "inputs": {
-      "ckpt_name": "aniverse_thxEd14Pruned.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple"
-  },
-  "6": {
-    "inputs": {
-      "text": "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,",
-      "clip": [
-        "4",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode"
-  },
-  "7": {
-    "inputs": {
-      "text": "text, watermark, nsfw, nude",
-      "clip": [
-        "4",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode"
-  },
-  "8": {
-    "inputs": {
-      "samples": [
-        "3",
-        0
-      ],
-      "vae": [
-        "4",
-        2
-      ]
-    },
-    "class_type": "VAEDecode"
-  },
-  "9": {
-    "inputs": {
-      "filename_prefix": "ComfyUI",
-      "images": [
-        "8",
-        0
-      ]
-    },
-    "class_type": "SaveImage"
-  },
   "10": {
     "inputs": {
-      "pixels": [
-        "11",
-        0
-      ],
-      "vae": [
-        "4",
-        2
-      ]
+      "image": "12499060-A-man-standing-straight-and-confident.jpg",
+      "upload": "image"
     },
-    "class_type": "VAEEncode"
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image (Person)"
+    }
   },
   "11": {
     "inputs": {
-      "image": "test_api.jpg",
-      "choose file to upload": "image"
+      "image": "ysl-shirt.jpg",
+      "upload": "image"
     },
-    "class_type": "LoadImage"
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image (Top)"
+    }
+  },
+  "12": {
+    "inputs": {
+      "sam_model": "sam_vit_h (2.56GB)",
+      "grounding_dino_model": "GroundingDINO_SwinT_OGC (694MB)",
+      "threshold": 0.3,
+      "detail_method": "VITMatte",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "prompt": ["22", 0],
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": ["10", 0]
+    },
+    "class_type": "LayerMask: SegmentAnythingUltra V2",
+    "_meta": {
+      "title": "LayerMask: SegmentAnythingUltra V2"
+    }
+  },
+  "13": {
+    "inputs": {
+      "mask": ["12", 1]
+    },
+    "class_type": "LayerMask: MaskPreview",
+    "_meta": {
+      "title": "LayerMask: MaskPreview"
+    }
+  },
+  "14": {
+    "inputs": {
+      "mask_grow": 25,
+      "mixed_precision": "fp16",
+      "seed": 581789587488464,
+      "steps": 40,
+      "cfg": 2.5,
+      "image": ["10", 0],
+      "mask": ["12", 1],
+      "refer_image": ["11", 0]
+    },
+    "class_type": "CatVTONWrapper",
+    "_meta": {
+      "title": "CatVTON Wrapper"
+    }
+  },
+  "15": {
+    "inputs": {
+      "images": ["14", 0]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "16": {
+    "inputs": {
+      "image": "jeans.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image (Bottom)"
+    }
+  },
+  "17": {
+    "inputs": {
+      "sam_model": "sam_vit_h (2.56GB)",
+      "grounding_dino_model": "GroundingDINO_SwinT_OGC (694MB)",
+      "threshold": 0.3,
+      "detail_method": "VITMatte",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.02,
+      "process_detail": false,
+      "prompt": ["24", 0],
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": ["14", 0]
+    },
+    "class_type": "LayerMask: SegmentAnythingUltra V2",
+    "_meta": {
+      "title": "LayerMask: SegmentAnythingUltra V2"
+    }
+  },
+  "18": {
+    "inputs": {
+      "mask_grow": 25,
+      "mixed_precision": "fp16",
+      "seed": 1002813801378119,
+      "steps": 40,
+      "cfg": 2.5,
+      "image": ["14", 0],
+      "mask": ["17", 1],
+      "refer_image": ["16", 0]
+    },
+    "class_type": "CatVTONWrapper",
+    "_meta": {
+      "title": "CatVTON Wrapper"
+    }
+  },
+  "19": {
+    "inputs": {
+      "images": ["18", 0]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "20": {
+    "inputs": {
+      "mask": ["17", 1]
+    },
+    "class_type": "MaskPreview+",
+    "_meta": {
+      "title": "🔧 Mask Preview"
+    }
+  },
+  "22": {
+    "inputs": {
+      "text_positive": "shirt",
+      "text_negative": "",
+      "style": "base",
+      "log_prompt": "No",
+      "style_name": ""
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler - top"
+    }
+  },
+  "23": {
+    "inputs": {
+      "filename_prefix": "krsna",
+      "images": ["18", 0]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "24": {
+    "inputs": {
+      "text_positive": "pant, belt",
+      "text_negative": "",
+      "style": "base",
+      "log_prompt": "No",
+      "style_name": ""
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler - bottom"
+    }
   }
 }
