@@ -2,6 +2,7 @@ import json
 import os
 import time
 import random
+import sys
 
 import gradio as gr
 import numpy as np
@@ -9,9 +10,8 @@ import requests
 from PIL import Image
 
 # Update these paths based on your ComfyUI setup
-URL = "http://127.0.0.1:8188/prompt"
-INPUT_DIR = "C:\\Users\\aniru\\OneDrive\\Desktop\\Desktop\\anirudhmakhana\\fashion-gradio\\comfy-gradio-api\\images"
-OUTPUT_DIR = "C:\\Users\\aniru\\OneDrive\\Desktop\\Desktop\\anirudhmakhana\\fashion-gradio\\comfy-gradio-api\\output"
+INPUT_DIR = os.path.join(os.path.dirname(__file__), "images")
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "output")
 
 cached_seed = 0
 
@@ -25,7 +25,7 @@ def get_latest_image(folder):
 def start_queue(prompt_workflow):
     p = {"prompt": prompt_workflow}
     data = json.dumps(p).encode('utf-8')
-    requests.post(URL, data=data)
+    requests.post(sys.argv[1], data=data)
 
 def prepare_prompt(person_image_path, top_image_path, bottom_image_path, top_desc, top_neg_desc, bottom_desc, bottom_neg_desc):
     # Load the workflow from your workflow JSON
