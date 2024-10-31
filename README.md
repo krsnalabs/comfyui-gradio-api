@@ -26,10 +26,9 @@ By the end, you'll understand the basics of building a Python API and connecting
 To run the code:
 
 1. Clone the repo
-2. Install dependencies (`pip install requests Pillow gradio numpy`)
+2. Install dependencies (`!pip install gradio comfy_api_simplified`)
 3. Modify the Comfy UI installation path
-4. Open `python app.py` and modify the `INPUT_DIR` and `OUTPUT_DIR` folder path
-5. Run `python app.py`
+5. Run `python app.py [COMFYUI_URL]`
 6. Open the localhost link to view in Gradio interface
 
 The main files:
