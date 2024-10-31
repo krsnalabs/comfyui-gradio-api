@@ -30,10 +30,17 @@
       "black_point": 0.01,
       "white_point": 0.99,
       "process_detail": false,
-      "prompt": ["22", 0],
+      "prompt": [
+        "22",
+        0
+      ],
       "device": "cuda",
       "max_megapixels": 2,
-      "image": ["10", 0]
+      "cache_model": false,
+      "image": [
+        "10",
+        0
+      ]
     },
     "class_type": "LayerMask: SegmentAnythingUltra V2",
     "_meta": {
@@ -42,7 +49,10 @@
   },
   "13": {
     "inputs": {
-      "mask": ["12", 1]
+      "mask": [
+        "12",
+        1
+      ]
     },
     "class_type": "LayerMask: MaskPreview",
     "_meta": {
@@ -56,9 +66,18 @@
       "seed": 581789587488464,
       "steps": 40,
       "cfg": 2.5,
-      "image": ["10", 0],
-      "mask": ["12", 1],
-      "refer_image": ["11", 0]
+      "image": [
+        "10",
+        0
+      ],
+      "mask": [
+        "12",
+        1
+      ],
+      "refer_image": [
+        "11",
+        0
+      ]
     },
     "class_type": "CatVTONWrapper",
     "_meta": {
@@ -67,7 +86,10 @@
   },
   "15": {
     "inputs": {
-      "images": ["14", 0]
+      "images": [
+        "14",
+        0
+      ]
     },
     "class_type": "PreviewImage",
     "_meta": {
@@ -95,10 +117,17 @@
       "black_point": 0.01,
       "white_point": 0.02,
       "process_detail": false,
-      "prompt": ["24", 0],
+      "prompt": [
+        "24",
+        0
+      ],
       "device": "cuda",
       "max_megapixels": 2,
-      "image": ["14", 0]
+      "cache_model": false,
+      "image": [
+        "14",
+        0
+      ]
     },
     "class_type": "LayerMask: SegmentAnythingUltra V2",
     "_meta": {
@@ -112,9 +141,18 @@
       "seed": 1002813801378119,
       "steps": 40,
       "cfg": 2.5,
-      "image": ["14", 0],
-      "mask": ["17", 1],
-      "refer_image": ["16", 0]
+      "image": [
+        "14",
+        0
+      ],
+      "mask": [
+        "17",
+        1
+      ],
+      "refer_image": [
+        "16",
+        0
+      ]
     },
     "class_type": "CatVTONWrapper",
     "_meta": {
@@ -123,7 +161,10 @@
   },
   "19": {
     "inputs": {
-      "images": ["18", 0]
+      "images": [
+        "18",
+        0
+      ]
     },
     "class_type": "PreviewImage",
     "_meta": {
@@ -132,7 +173,10 @@
   },
   "20": {
     "inputs": {
-      "mask": ["17", 1]
+      "mask": [
+        "17",
+        1
+      ]
     },
     "class_type": "MaskPreview+",
     "_meta": {
@@ -144,8 +188,7 @@
       "text_positive": "shirt",
       "text_negative": "",
       "style": "base",
-      "log_prompt": "No",
-      "style_name": ""
+      "log_prompt": "No"
     },
     "class_type": "SDXLPromptStyler",
     "_meta": {
@@ -155,7 +198,10 @@
   "23": {
     "inputs": {
       "filename_prefix": "krsna",
-      "images": ["18", 0]
+      "images": [
+        "18",
+        0
+      ]
     },
     "class_type": "SaveImage",
     "_meta": {
@@ -167,8 +213,7 @@
       "text_positive": "pant, belt",
       "text_negative": "",
       "style": "base",
-      "log_prompt": "No",
-      "style_name": ""
+      "log_prompt": "No"
     },
     "class_type": "SDXLPromptStyler",
     "_meta": {
